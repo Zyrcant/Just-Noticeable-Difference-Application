@@ -48,6 +48,7 @@ public class JNDstudyGUI extends javax.swing.JFrame {
         box1 = new javax.swing.JLabel();
         box2 = new javax.swing.JLabel();
         counter = new javax.swing.JLabel();
+        resetButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -95,6 +96,13 @@ public class JNDstudyGUI extends javax.swing.JFrame {
             }
         });
 
+        resetButton.setText("Reset");
+        resetButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resetButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -114,7 +122,9 @@ public class JNDstudyGUI extends javax.swing.JFrame {
                         .addComponent(bpbutton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(bpbutton1)
-                        .addGap(632, 632, 632)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(resetButton)
+                        .addGap(541, 541, 541)
                         .addComponent(counter)))
                 .addContainerGap(119, Short.MAX_VALUE))
         );
@@ -127,7 +137,8 @@ public class JNDstudyGUI extends javax.swing.JFrame {
                     .addComponent(tpButton)
                     .addComponent(bpbutton)
                     .addComponent(bpbutton1)
-                    .addComponent(counter))
+                    .addComponent(counter)
+                    .addComponent(resetButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(box2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 561, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -526,6 +537,23 @@ public class JNDstudyGUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_BTPbuttonActionPerformed
 
+    private void resetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonActionPerformed
+        System.out.println("Resetting");
+        //flush variables just in case
+        count = 0;
+        refIsOne = true;
+        goingUp = false;
+        //Ignores the reversal added when the user gets the first reference
+        firstReversal = false; 
+        numRefSelected = 0;
+        comparison = 10;
+        images = new ArrayList<>();
+        reversals = new ArrayList<>();
+        //flush images
+        box1.setIcon(null);
+        box2.setIcon(null);
+    }//GEN-LAST:event_resetButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -568,6 +596,7 @@ public class JNDstudyGUI extends javax.swing.JFrame {
     private javax.swing.JButton bpbutton;
     private javax.swing.JButton bpbutton1;
     private javax.swing.JLabel counter;
+    private javax.swing.JButton resetButton;
     private javax.swing.JButton tpButton;
     // End of variables declaration//GEN-END:variables
 }
